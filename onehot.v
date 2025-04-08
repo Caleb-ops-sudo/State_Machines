@@ -39,7 +39,7 @@ module onehot (
        .Default(1'b0),
        .D(Dnext),
        .clk(clk),
-       .Q(Cstate),
+        .Q(Dstate),
        .Reset(Reset)
         
     );
@@ -48,7 +48,7 @@ module onehot (
      .Default(1'b0),
      .D(Enext),
      .clk(clk),
-     .Q(Cstate),
+        .Q(Estate),
      .Reset(Reset)
     );
 
