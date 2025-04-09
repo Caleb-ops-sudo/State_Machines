@@ -2,7 +2,7 @@ module dff(
     input Default,
     input D,
     input clk,
-    input reset,
+    input Reset,
     output reg Q
 );
 
@@ -10,8 +10,8 @@ module dff(
         Q <= Default;
     end
 
-    always @(posedge clk, posedge reset) begin
-        if (reset)
+    always @(posedge clk, posedge Reset) begin
+        if (Reset)
             Q <= Default;
         else
             Q <= D;
