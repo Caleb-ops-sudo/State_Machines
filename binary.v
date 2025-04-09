@@ -40,7 +40,11 @@ output z
     assign Next[1] = (~State[0] & State[1] & ~State[2]) |(~State[0] & ~State[2] & w) | (~State[0] & ~State[1] & State[2]);
     assign Next[2] =(State[0] & ~State[1] & w) | (State[1] & State[2] & w) ;
 
+assign z = (State[1] & ~State[0] & ~State[2]) | (~State[1] & State[2] & ~State[0]);
 
+assign Next[0] = (~State[2] & ~State[1] & ~w) | (State[1] & ~State[0] & w) | (~State[2] & State[0] & ~w) | (~State[1] & State[2] & ~w);
+assign Next[1] = (~State[2] & State[0] & ~w) | (~State[2] & State[1] & ~State[0]) | (State[2] & State[0] & w);
+assign Next[2] = (State[1] & ~State[0] & w) | (~State[1] & State[2] & w);
 
 
 endmodule
