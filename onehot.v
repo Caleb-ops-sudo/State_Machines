@@ -5,11 +5,16 @@ module onehot (
     input clk,
     input Reset,
     output [4:0] state,
-    output z
+    output z,
+    output Astate,
+    output Bstate,
+    output Cstate,
+    output Dstate,
+    output Estate
     
 );
  wire Anext, Bnext, Cnext, Dnext, Enext;
- wire Astate, Bstate, Cstate, Dstate, Estate;
+ 
 
   dff Adff(
         .Default(1'b1),
@@ -48,11 +53,11 @@ module onehot (
      .Default(1'b0),
      .D(Enext),
      .clk(clk),
-        .Q(Estate),
+     .Q(Estate),
      .Reset(Reset)
     );
 
-    assign z = (Cstate & Estate);
+    assign z = (Cstate | Estate);
 
     assign Anext = 0;
     assign Bnext = ~w & ( Astate | Dstate | Estate );
@@ -65,4 +70,3 @@ endmodule
 
     
     
-
